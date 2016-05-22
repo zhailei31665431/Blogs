@@ -94,16 +94,31 @@ module.exports = function(app,__dirname){
     app.get('/', function(req, res) {
       res.sendFile(path.join(__dirname + '/app/view/index.html'));
     });
-
-    app.get('/info:id',function(){
+    app.get('/info:id',function(req, res){
       res.sendFile(path.join(__dirname + '/app/view/info.html'));
     })
-
-    app.get('/admin',function(){
-      res.sendFile(path.join(__dirname + '/app/view/admin.html'));
+    app.get('/login',function(req,res){
+      res.sendFile(path.join(__dirname + '/app/view/login.html'));
     })
-
-    // app.get('*', function(req, res) {
-    //   res.sendFile(path.join(__dirname + '/app/view/index.html'));
-    // });
+    app.get('/admin',function(req, res){
+      var token = getToken(req)
+      console.log(token,'123')
+      if(token){
+        jwt.verify(token, superSecret, function(err, decoded) {
+          if (err) {
+            res.status(403).send({
+                code:0,
+                error:{
+                    msg:'',
+                    error_code:''
+                }
+            });
+          }else{
+            res.render(path.join(__dirname + '/app/view/admin.html'),data);
+          }
+        });
+      }else{
+        res.redirect('/login');
+      }
+    })
 }

@@ -4,6 +4,7 @@ var bcrypt     = require('bcrypt-nodejs');
 
 
 var List = new Schema({
+		title:{type:String},
     content:{ type: String,unique:true},
     create_at:{type:Date, default: Date.now}
 });

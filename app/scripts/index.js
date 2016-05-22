@@ -2,24 +2,26 @@
 
 
 const Nav = React.createClass({	
-	render:function(){}
+	render:function(){
+		return (<div className="nav">
+							<div className="nav-item">全部内容</div>
+							<div className="nav-item">个人信息</div>
+						</div>)
+	}
 })
 
+const List = React.createClass({
+	render:function(){
+		return (<div className=""></div>)
+	}
+})
 const ListEmpty = React.createClass({
 	render:function(){
 		return (<div className="">暂无数据</div>)
 	}
 })
-const List = React.createClass({
-	render:function(){
-		console.log(this.props)
-		return (<div className=""></div>)
-	}
-})
-
-const Controller = React.createClass({
+const ListController = React.createClass({
 	getInitialState:function(){
-		var self = this;
 		return {}
 	},
 	render:function(){
@@ -29,7 +31,11 @@ const Controller = React.createClass({
 		}else{
 			container = <ListEmpty/>
 		}
-		return (<div className="">{container}</div>)
+		return (<div className="list">
+							<div className="list-main">
+								{container}
+							</div>
+						</div>)
 	},
 	componentDidMount:function(){
 		var self = this;
@@ -39,6 +45,15 @@ const Controller = React.createClass({
       console.log(resp,'123')
 			self.setState(resp);
 		})
+	}
+})
+
+const Controller = React.createClass({
+	render:function(){
+		return (<div className="">
+							<Nav/>
+							<ListController/>
+						</div>)
 	}
 })
 
