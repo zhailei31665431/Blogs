@@ -5,15 +5,122 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/bower_components/fontawesome/css/font-awesome.css">
-<!-- build:css styles/bootstrap.min.css -->
+<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
-<!-- endbuild -->
-<!-- <link rel="stylesheet" href="/app/styles/all.css" /> -->
-<script type="text/javascript" src="/node_modules/react/dist/react.js"></script>
+<link rel="stylesheet" type="text/css" href="/bower_components/sweetalert/dist/sweetalert.css" >
+<link rel="stylesheet" type="text/css" href="/bower_components/nprogress/nprogress.css">
 </head>
 <body>
 	<header></header>
+	<article id="article-w">
+		<div class="nav">
+			<div class="nav-item">全部内容</div>
+			<div class="nav-item">个人信息</div>
+		</div>
+		<div class="list">
+			<div class="list-main">
+				<div class="list-item">
+					<div class="list-item-c">
+						<div class="list-item-name">标题的内容</div>
+						<div class="list-item-content">
+							今日（5月13日）消息，滴滴宣布其最新一轮融资（滴滴出行成立以来的第二轮融资）取得重要进展，获多家海内外知名金融及产业机投资。其中，Apple 公司以 10 亿美元（约合人民币 65.21 亿）投资滴滴，是滴滴迄今为止获得的单笔最大投资。官方称，通过此次投资，Apple 成为滴滴的战略投资者。而在我们印象中，苹果公司是一家现金堆积如山的金主（现金储备超过 2000 亿美金），喜欢 “买买买”，比如收购 Beats（去年共收购 15 家公司），此次以战略投资的形式相当罕见。为何投资滴滴，Apple CEO Tim Cook 对路透表示："We are making the investment for a number of strategic reasons, including a chance to learn more about certain segments of the China market" Cook said. "Of course, we believe it will deliver a strong return for our invested capital over time as well."
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="list-item-c">
+						<div class="list-item-name">标题的内容</div>
+						<div class="list-item-content">
+							今日（5月13日）消息，滴滴宣布其最新一轮融资（滴滴出行成立以来的第二轮融资）取得重要进展，获多家海内外知名金融及产业机投资。其中，Apple 公司以 10 亿美元（约合人民币 65.21 亿）投资滴滴，是滴滴迄今为止获得的单笔最大投资。官方称，通过此次投资，Apple 成为滴滴的战略投资者。而在我们印象中，苹果公司是一家现金堆积如山的金主（现金储备超过 2000 亿美金），喜欢 “买买买”，比如收购 Beats（去年共收购 15 家公司），此次以战略投资的形式相当罕见。为何投资滴滴，Apple CEO Tim Cook 对路透表示："We are making the investment for a number of strategic reasons, including a chance to learn more about certain segments of the China market" Cook said. "Of course, we believe it will deliver a strong return for our invested capital over time as well."
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="list-item-c">
+						<div class="list-item-name">标题的内容</div>
+						<div class="list-item-content">
+							今日（5月13日）消息，滴滴宣布其最新一轮融资（滴滴出行成立以来的第二轮融资）取得重要进展，获多家海内外知名金融及产业机投资。其中，Apple 公司以 10 亿美元（约合人民币 65.21 亿）投资滴滴，是滴滴迄今为止获得的单笔最大投资。官方称，通过此次投资，Apple 成为滴滴的战略投资者。而在我们印象中，苹果公司是一家现金堆积如山的金主（现金储备超过 2000 亿美金），喜欢 “买买买”，比如收购 Beats（去年共收购 15 家公司），此次以战略投资的形式相当罕见。为何投资滴滴，Apple CEO Tim Cook 对路透表示："We are making the investment for a number of strategic reasons, including a chance to learn more about certain segments of the China market" Cook said. "Of course, we believe it will deliver a strong return for our invested capital over time as well."
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-more">加载更多</div>
+		</div>
+	</article>
+	<footer></footer>
 </body>
 <!-- <script src="/bower_components/requirejs/require.js" data-main="/app/main"></script> -->
+<style type="text/css">
+	*{margin:0;}
+	header{
+		height: 70px;
+		line-height: 70px;
+		border-bottom: 1px solid #ccc;
+		color: #494949;
+		text-align: center;
+		font-size: 20px;
+	}
+	article{
+		width: 900px;
+		margin:30px auto 0;
+	}
+	.nav{
+		float: right;
+		width: 180px;
+		text-align: center;
+	}
+	.nav .nav-item{
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	.nav .nav-item:first-child{
+		margin-top: 0;
+	}
+	.nav .nav-item.active{
+		color: #bf0404;
+		cursor: default;
+	}
+	.nav .nav-item:hover{
+		color: #bf0404;
+	}
+	.list{
+		display: block;
+		margin:0 200px 30px 0;
+	}
+	.list .list-item{
+		border-top: 1px solid #ccc;
+	}
+	.list-item .list-item-c{
+		padding:30px 0 30px 0;
+	}
+	.list-item .list-item-c .list-item-name{
+		font-size: 16px;
+		color: #494949;
+	}
+	.list-item .list-item-c .list-item-content{
+		margin-top: 15px;
+		color: #b0b0b0;
+		font-size: 14px;
+	}
+	.list .list-item:first-child{
+		border-top:none;
+	}
+	.list .list-item:first-child .list-item-c{
+		padding-top: 0;
+	}
+	.list .list-more{
+		text-align: center;
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/bower_components/underscore/underscore.js"></script>
+<script type="text/javascript" src="/bower_components/nprogress/nprogress.js"></script>
+<script type="text/javascript" src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript" src="/bower_components/react/react.js"></script>
+<script type="text/javascript" src="/bower_components/react/react-dom.js"></script>
+<script type="text/javascript" src="/app/scripts/browser.min.js"></script>
+
+<script type="text/babel" src="/app/scripts/index.js"></script>
 </html>

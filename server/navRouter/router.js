@@ -94,4 +94,16 @@ module.exports = function(app,__dirname){
     app.get('/', function(req, res) {
       res.sendFile(path.join(__dirname + '/app/view/index.html'));
     });
+
+    app.get('/info:id',function(){
+      res.sendFile(path.join(__dirname + '/app/view/info.html'));
+    })
+
+    app.get('/admin',function(){
+      res.sendFile(path.join(__dirname + '/app/view/admin.html'));
+    })
+
+    // app.get('*', function(req, res) {
+    //   res.sendFile(path.join(__dirname + '/app/view/index.html'));
+    // });
 }
