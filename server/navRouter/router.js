@@ -106,13 +106,7 @@ module.exports = function(app,__dirname){
       if(token){
         jwt.verify(token, superSecret, function(err, decoded) {
           if (err) {
-            res.status(403).send({
-                code:0,
-                error:{
-                    msg:'',
-                    error_code:''
-                }
-            });
+            res.redirect('/login');    
           }else{
             res.render(path.join(__dirname + '/app/view/admin.html'),data);
           }

@@ -6,8 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css" />
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/underscore/underscore.js"></script>
+<script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css">
 	*{margin:0;padding: 0;}
 	html{height: 100%}
@@ -144,12 +146,12 @@
 									<div class="login-passwd-error hide" ng-hide="data['passwdError']">密码错误</div>
 								</div>
 								<button type="button" class="btn btn-info active login-save-btn" ng-disabled="data['isdis']" ng-click = 'submit()' ng-bind="data['loginVal']">登录</button>
-								<a href=""><div class="login-forget" ng-class="data['nameClass']">忘记密码?</div></a>
+								<div class="login-forget" ng-class="data['nameClass']">忘记密码？请联系管理员</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="footer">© 2011-2014 道勤软件 版权所有</div>
+				<div class="footer"></div>
 			</div>
 		</div>
 	</div>
@@ -164,7 +166,7 @@
 <script type="text/javascript" charset="utf-8">
 	var basurl = "<?php echo $this->basurl?>";
 </script>
-<script type="text/javascript" src="/console/app/scripts/main.js"></script>
+<script type="text/javascript" src="/app/scripts/main.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script type="text/javascript">
 	var myApp = angular.module('myApp',[],function(){});
@@ -253,20 +255,15 @@
         $scope.submit = function(){
             $scope['data']['isdis'] = true
             $scope['data']['loginVal']= '登录中…'
-            var data = {"email":$scope["data"]["email"],"pname":$scope["data"]["passwd"]};
-            $http.post(basurl+'/login/post',data).success(function(data){
-            	if(data["ret"] == 'error'){
+            var data = {"email":$scope["data"]["email"],"password":$scope["data"]["passwd"]};
+            $http.post('/api/login',data).success(function(data){
+            	console.log(data);
+            	if(data['error']){
             		$scope['data']['isdis'] = false
             		$scope['data']['loginVal'] = '登录'
-						if(data['cmt']['code'] == 'jw_reg_nouser'){
-							$scope['data']['nameError'] = false;
-							$scope['data']['nameHasError'] = 'haserror';
-						}else{
-							$scope['data']['passwdError'] = false;
-							$scope['data']['passwdHasError'] = 'haserror';
-						}
+            		swal(data['error']['msg'])
             	}else{
-            		window.location.href = basurl+'/blog'
+            		window.location.href = '/admin'
             	}
             })
         }
